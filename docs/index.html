@@ -1,125 +1,550 @@
-<div style="margin: 150px 150px 150px 150px;">
-<h1 class="code-line" data-line-start="0" data-line-end="1"><a id="Dillinger_0"></a>Dillinger</h1>
-<h2 class="code-line" data-line-start="1" data-line-end="2"><a id="_The_Last_Markdown_Editor_Ever__1"></a><em>The Last Markdown Editor, Ever</em></h2>
-<p class="has-line-data" data-line-start="3" data-line-end="4"><a href="https://nodesource.com/products/nsolid"><img src="https://cldup.com/dTxpPi9lDf.thumb.png" alt="N|Solid" /></a></p>
-<p class="has-line-data" data-line-start="5" data-line-end="6"><a href="https://travis-ci.org/joemccann/dillinger"><img src="https://travis-ci.org/joemccann/dillinger.svg?branch=master" alt="Build Status" /></a></p>
-<p class="has-line-data" data-line-start="7" data-line-end="9">Dillinger is a cloud-enabled, mobile-ready, offline-storage compatible,<br /> AngularJS-powered HTML5 Markdown editor.</p>
-<ul>
-<li class="has-line-data" data-line-start="10" data-line-end="11">Type some Markdown on the left</li>
-<li class="has-line-data" data-line-start="11" data-line-end="12">See HTML in the right</li>
-<li class="has-line-data" data-line-start="12" data-line-end="14">✨Magic ✨</li>
-</ul>
-<h2 class="code-line" data-line-start="14" data-line-end="15"><a id="Features_14"></a>Features</h2>
-<ul>
-<li class="has-line-data" data-line-start="16" data-line-end="17">Import a HTML file and watch it magically convert to Markdown</li>
-<li class="has-line-data" data-line-start="17" data-line-end="18">Drag and drop images (requires your Dropbox account be linked)</li>
-<li class="has-line-data" data-line-start="18" data-line-end="19">Import and save files from GitHub, Dropbox, Google Drive and One Drive</li>
-<li class="has-line-data" data-line-start="19" data-line-end="20">Drag and drop markdown and HTML files into Dillinger</li>
-<li class="has-line-data" data-line-start="20" data-line-end="22">Export documents as Markdown, HTML and PDF</li>
-</ul>
-<p class="has-line-data" data-line-start="22" data-line-end="25">Markdown is a lightweight markup language based on the formatting conventions<br /> that people naturally use in email.<br /> As <a href="http://daringfireball.net">John Gruber</a> writes on the <a href="http://daringfireball.net/projects/markdown/">Markdown site</a></p>
-<blockquote>
-<p class="has-line-data" data-line-start="26" data-line-end="33">The overriding design goal for Markdown&rsquo;s<br /> formatting syntax is to make it as readable<br /> as possible. The idea is that a<br /> Markdown-formatted document should be<br /> publishable as-is, as plain text, without<br /> looking like it&rsquo;s been marked up with tags<br /> or formatting instructions.</p>
-</blockquote>
-<p class="has-line-data" data-line-start="34" data-line-end="37">This text you see here is *actually- written in Markdown! To get a feel<br /> for Markdown&rsquo;s syntax, type some text into the left window and<br /> watch the results in the right.</p>
-<h2 class="code-line" data-line-start="38" data-line-end="39"><a id="Tech_38"></a>Tech</h2>
-<p class="has-line-data" data-line-start="40" data-line-end="41">Dillinger uses a number of open source projects to work properly:</p>
-<ul>
-<li class="has-line-data" data-line-start="42" data-line-end="43"><a href="http://angularjs.org">AngularJS</a> - HTML enhanced for web apps!</li>
-<li class="has-line-data" data-line-start="43" data-line-end="44"><a href="http://ace.ajax.org">Ace Editor</a> - awesome web-based text editor</li>
-<li class="has-line-data" data-line-start="44" data-line-end="45"><a href="https://github.com/markdown-it/markdown-it">markdown-it</a> - Markdown parser done right. Fast and easy to extend.</li>
-<li class="has-line-data" data-line-start="45" data-line-end="46"><a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a> - great UI boilerplate for modern web apps</li>
-<li class="has-line-data" data-line-start="46" data-line-end="47"><a href="http://nodejs.org">node.js</a> - evented I/O for the backend</li>
-<li class="has-line-data" data-line-start="47" data-line-end="48"><a href="http://expressjs.com">Express</a> - fast node.js network app framework <a href="http://twitter.com/tjholowaychuk">@tjholowaychuk</a></li>
-<li class="has-line-data" data-line-start="48" data-line-end="49"><a href="http://gulpjs.com">Gulp</a> - the streaming build system</li>
-<li class="has-line-data" data-line-start="49" data-line-end="51"><a href="https://breakdance.github.io/breakdance/">Breakdance</a> - HTML<br /> to Markdown converter</li>
-<li class="has-line-data" data-line-start="51" data-line-end="53"><a href="http://jquery.com">jQuery</a> - duh</li>
-</ul>
-<p class="has-line-data" data-line-start="53" data-line-end="55">And of course Dillinger itself is open source with a <a href="https://github.com/joemccann/dillinger">public repository</a><br /> on GitHub.</p>
-<h2 class="code-line" data-line-start="56" data-line-end="57"><a id="Installation_56"></a>Installation</h2>
-<p class="has-line-data" data-line-start="58" data-line-end="59">Dillinger requires <a href="https://nodejs.org/">Node.js</a> v10+ to run.</p>
-<p class="has-line-data" data-line-start="60" data-line-end="61">Install the dependencies and devDependencies and start the server.</p>
-<pre><code class="has-line-data" data-line-start="63" data-line-end="67"><span class="hljs-built_in">cd</span> dillinger
-npm i
-node app
-</code></pre>
-<p class="has-line-data" data-line-start="68" data-line-end="69">For production environments&hellip;</p>
-<pre><code class="has-line-data" data-line-start="71" data-line-end="74">npm install --production
-NODE_ENV=production node app
-</code></pre>
-<h2 class="code-line" data-line-start="75" data-line-end="76"><a id="Plugins_75"></a>Plugins</h2>
-<p class="has-line-data" data-line-start="77" data-line-end="79">Dillinger is currently extended with the following plugins.<br /> Instructions on how to use them in your own application are linked below.</p>
-<table class="table table-striped table-bordered">
-<thead>
-<tr>
-<th>Plugin</th>
-<th>README</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Dropbox</td>
-<td><a href="https://github.com/joemccann/dillinger/tree/master/plugins/dropbox/README.md">plugins/dropbox/README.md</a></td>
-</tr>
-<tr>
-<td>GitHub</td>
-<td><a href="https://github.com/joemccann/dillinger/tree/master/plugins/github/README.md">plugins/github/README.md</a></td>
-</tr>
-<tr>
-<td>Google Drive</td>
-<td><a href="https://github.com/joemccann/dillinger/tree/master/plugins/googledrive/README.md">plugins/googledrive/README.md</a></td>
-</tr>
-<tr>
-<td>OneDrive</td>
-<td><a href="https://github.com/joemccann/dillinger/tree/master/plugins/onedrive/README.md">plugins/onedrive/README.md</a></td>
-</tr>
-<tr>
-<td>Medium</td>
-<td><a href="https://github.com/joemccann/dillinger/tree/master/plugins/medium/README.md">plugins/medium/README.md</a></td>
-</tr>
-<tr>
-<td>Google Analytics</td>
-<td><a href="https://github.com/RahulHP/dillinger/blob/master/plugins/googleanalytics/README.md">plugins/googleanalytics/README.md</a></td>
-</tr>
-</tbody>
-</table>
-<h2 class="code-line" data-line-start="89" data-line-end="90"><a id="Development_89"></a>Development</h2>
-<p class="has-line-data" data-line-start="91" data-line-end="92">Want to contribute? Great!</p>
-<p class="has-line-data" data-line-start="93" data-line-end="95">Dillinger uses Gulp + Webpack for fast developing.<br /> Make a change in your file and instantaneously see your updates!</p>
-<p class="has-line-data" data-line-start="96" data-line-end="97">Open your favorite Terminal and run these commands.</p>
-<p class="has-line-data" data-line-start="98" data-line-end="99">First Tab:</p>
-<pre><code class="has-line-data" data-line-start="101" data-line-end="103">node app
-</code></pre>
-<p class="has-line-data" data-line-start="104" data-line-end="105">Second Tab:</p>
-<pre><code class="has-line-data" data-line-start="107" data-line-end="109">gulp watch
-</code></pre>
-<p class="has-line-data" data-line-start="110" data-line-end="111">(optional) Third:</p>
-<pre><code class="has-line-data" data-line-start="113" data-line-end="115">karma <span class="hljs-built_in">test</span>
-</code></pre>
-<h4 class="code-line" data-line-start="116" data-line-end="117"><a id="Building_for_source_116"></a>Building for source</h4>
-<p class="has-line-data" data-line-start="118" data-line-end="119">For production release:</p>
-<pre><code class="has-line-data" data-line-start="121" data-line-end="123">gulp build --prod
-</code></pre>
-<p class="has-line-data" data-line-start="124" data-line-end="125">Generating pre-built zip archives for distribution:</p>
-<pre><code class="has-line-data" data-line-start="127" data-line-end="129">gulp build dist --prod
-</code></pre>
-<h2 class="code-line" data-line-start="130" data-line-end="131"><a id="Docker_130"></a>Docker</h2>
-<p class="has-line-data" data-line-start="132" data-line-end="133">Dillinger is very easy to install and deploy in a Docker container.</p>
-<p class="has-line-data" data-line-start="134" data-line-end="137">By default, the Docker will expose port 8080, so change this within the<br /> Dockerfile if necessary. When ready, simply use the Dockerfile to<br /> build the image.</p>
-<pre><code class="has-line-data" data-line-start="139" data-line-end="142"><span class="hljs-built_in">cd</span> dillinger
-docker build -t &lt;youruser&gt;/dillinger:<span class="hljs-variable">${package.json.version}</span> .
-</code></pre>
-<p class="has-line-data" data-line-start="143" data-line-end="146">This will create the dillinger image and pull in the necessary dependencies.<br /> Be sure to swap out <code>${package.json.version}</code> with the actual<br /> version of Dillinger.</p>
-<p class="has-line-data" data-line-start="147" data-line-end="150">Once done, run the Docker image and map the port to whatever you wish on<br /> your host. In this example, we simply map port 8000 of the host to<br /> port 8080 of the Docker (or whatever port was exposed in the Dockerfile):</p>
-<pre><code class="has-line-data" data-line-start="152" data-line-end="154">docker run <span class="hljs-operator">-d</span> -p <span class="hljs-number">8000</span>:<span class="hljs-number">8080</span> --restart=always --cap-add=SYS_ADMIN --name=dillinger &lt;youruser&gt;/dillinger:<span class="hljs-variable">${package.json.version}</span>
-</code></pre>
-<blockquote>
-<p class="has-line-data" data-line-start="155" data-line-end="156">Note: <code>--capt-add=SYS-ADMIN</code> is required for PDF rendering.</p>
-</blockquote>
-<p class="has-line-data" data-line-start="157" data-line-end="159">Verify the deployment by navigating to your server address in<br /> your preferred browser.</p>
-<pre><code class="has-line-data" data-line-start="161" data-line-end="163"><span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">8000</span>
-</code></pre>
-<h2 class="code-line" data-line-start="164" data-line-end="165"><a id="License_164"></a>License</h2>
-<p class="has-line-data" data-line-start="166" data-line-end="167">MIT</p>
-<p class="has-line-data" data-line-start="168" data-line-end="169"><strong>Free Software, Hell Yeah!</strong></p>
-</div>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>홍길동 - 프론트엔드 개발자</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #e2e8f0;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .profile-card {
+            background: rgba(30, 41, 59, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .header {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, #1e40af, #7c3aed);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="25" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="25" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(45deg, #06b6d4, #3b82f6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            position: relative;
+            z-index: 1;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .name {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .title {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .content {
+            padding: 2rem;
+        }
+
+        .section {
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #60a5fa;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #334155;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: #60a5fa;
+            border-radius: 3px;
+        }
+
+        .about {
+            font-size: 1.1rem;
+            color: #cbd5e1;
+            line-height: 1.8;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-category {
+            background: #1e293b;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid #60a5fa;
+            border: 1px solid rgba(148, 163, 184, 0.1);
+        }
+
+        .skill-category h4 {
+            color: #60a5fa;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #1e40af, #7c3aed);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+        }
+
+        .experience-item {
+            background: #1e293b;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #10b981;
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .experience-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.5rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .job-title {
+            font-weight: 600;
+            color: #f1f5f9;
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .company {
+            color: #10b981;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .period {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .job-description {
+            color: #cbd5e1;
+            margin-top: 1rem;
+            line-height: 1.7;
+        }
+
+        .achievements {
+            margin-top: 1rem;
+        }
+
+        .achievements h5 {
+            color: #60a5fa;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .achievement-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .achievement-list li {
+            color: #cbd5e1;
+            padding: 0.3rem 0;
+            padding-left: 1.2rem;
+            position: relative;
+            font-size: 0.95rem;
+        }
+
+        .achievement-list li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-size: 0.8rem;
+        }
+
+        .tech-stack {
+            margin-top: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tech-tag {
+            background: rgba(96, 165, 250, 0.1);
+            color: #60a5fa;
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid rgba(96, 165, 250, 0.3);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .contact-item {
+            background: #1e293b;
+            padding: 1rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(148, 163, 184, 0.1);
+        }
+
+        .contact-item:hover {
+            transform: translateY(-2px);
+            border-color: #60a5fa;
+            box-shadow: 0 10px 20px rgba(96, 165, 250, 0.1);
+        }
+
+        .contact-item a {
+            text-decoration: none;
+            color: #60a5fa;
+            font-weight: 500;
+        }
+
+        .contact-label {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            margin-bottom: 0.3rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .header {
+                padding: 2rem 1rem;
+            }
+
+            .name {
+                font-size: 2rem;
+            }
+
+            .profile-image {
+                width: 120px;
+                height: 120px;
+                font-size: 3rem;
+            }
+
+            .content {
+                padding: 1.5rem;
+            }
+
+            .experience-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        .floating-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .shape {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .shape:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            width: 60px;
+            height: 60px;
+            background: #1e40af;
+            border-radius: 50%;
+            animation-delay: 0s;
+        }
+
+        .shape:nth-child(2) {
+            top: 60%;
+            right: 10%;
+            width: 80px;
+            height: 80px;
+            background: #7c3aed;
+            border-radius: 20px;
+            animation-delay: 2s;
+        }
+
+        .shape:nth-child(3) {
+            bottom: 20%;
+            left: 20%;
+            width: 40px;
+            height: 40px;
+            background: #10b981;
+            border-radius: 50%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <div class="container">
+        <div class="profile-card">
+            <div class="header">
+                <div class="profile-image">👨‍💻</div>
+                <h1 class="name">홍길동</h1>
+                <p class="title">프론트엔드 개발자</p>
+            </div>
+
+            <div class="content">
+                <div class="section">
+                    <h2 class="section-title">About Me</h2>
+                    <p class="about">
+                        3년차 프론트엔드 개발자로, 사용자 경험을 중시하는 웹 애플리케이션 개발에 열정을 가지고 있습니다. 
+                        React와 TypeScript를 주력으로 하며, 클린 코드와 성능 최적화에 관심이 많습니다. 
+                        새로운 기술을 배우는 것을 좋아하고, 팀워크를 통해 더 나은 결과를 만들어내는 것을 즐깁니다.
+                    </p>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">Skills</h2>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h4>Frontend</h4>
+                            <div class="skill-tags">
+                                <span class="skill-tag">React</span>
+                                <span class="skill-tag">TypeScript</span>
+                                <span class="skill-tag">JavaScript</span>
+                                <span class="skill-tag">HTML/CSS</span>
+                                <span class="skill-tag">Tailwind CSS</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Tools & Others</h4>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Git</span>
+                                <span class="skill-tag">Webpack</span>
+                                <span class="skill-tag">Figma</span>
+                                <span class="skill-tag">REST API</span>
+                                <span class="skill-tag">Agile</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">Experience</h2>
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div>
+                                <div class="job-title">Senior Frontend Developer</div>
+                                <div class="company">테크이노베이션</div>
+                            </div>
+                            <div class="period">2023.01 - 현재</div>
+                        </div>
+                        <div class="job-description">
+                            대규모 B2B SaaS 플랫폼의 프론트엔드 아키텍처 설계 및 개발을 담당하며, 
+                            마이크로프론트엔드 구조를 도입하여 팀 간 개발 효율성을 향상시켰습니다.
+                        </div>
+                        <div class="achievements">
+                            <h5>주요 성과</h5>
+                            <ul class="achievement-list">
+                                <li>React + TypeScript 기반 대시보드 시스템 설계 및 구현</li>
+                                <li>웹팩 최적화를 통한 번들 크기 40% 감소 및 로딩 시간 2초 단축</li>
+                                <li>Code Splitting과 Lazy Loading 도입으로 초기 로딩 성능 50% 개선</li>
+                                <li>디자인 시스템 구축으로 개발 생산성 30% 향상</li>
+                                <li>Jest/RTL 기반 테스트 커버리지 85% 달성</li>
+                            </ul>
+                        </div>
+                        <div class="tech-stack">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">Next.js</span>
+                            <span class="tech-tag">Redux Toolkit</span>
+                            <span class="tech-tag">Styled Components</span>
+                            <span class="tech-tag">Jest</span>
+                        </div>
+                    </div>
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div>
+                                <div class="job-title">Frontend Developer</div>
+                                <div class="company">디지털솔루션즈</div>
+                            </div>
+                            <div class="period">2022.03 - 2022.12</div>
+                        </div>
+                        <div class="job-description">
+                            전자상거래 플랫폼의 사용자 인터페이스 개발 및 성능 최적화를 통해 
+                            사용자 경험 개선과 비즈니스 성과 향상에 기여했습니다.
+                        </div>
+                        <div class="achievements">
+                            <h5>주요 성과</h5>
+                            <ul class="achievement-list">
+                                <li>반응형 웹 디자인 구현으로 모바일 전환율 25% 증가</li>
+                                <li>이미지 최적화 및 CDN 도입으로 페이지 로딩 속도 3초 단축</li>
+                                <li>장바구니 및 결제 플로우 UX 개선으로 구매 완료율 15% 상승</li>
+                                <li>SEO 최적화를 통한 검색 엔진 유입 35% 증가</li>
+                                <li>크로스 브라우저 호환성 확보 (IE11+ 지원)</li>
+                            </ul>
+                        </div>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Vue.js</span>
+                            <span class="tech-tag">JavaScript ES6+</span>
+                            <span class="tech-tag">SCSS</span>
+                            <span class="tech-tag">Webpack</span>
+                            <span class="tech-tag">REST API</span>
+                        </div>
+                    </div>
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div>
+                                <div class="job-title">Junior Web Developer</div>
+                                <div class="company">크리에이티브웹</div>
+                            </div>
+                            <div class="period">2021.06 - 2022.02</div>
+                        </div>
+                        <div class="job-description">
+                            다양한 업종의 클라이언트를 위한 반응형 웹사이트 개발 및 유지보수를 담당하며, 
+                            웹 표준과 접근성을 준수한 고품질 웹사이트를 제작했습니다.
+                        </div>
+                        <div class="achievements">
+                            <h5>주요 성과</h5>
+                            <ul class="achievement-list">
+                                <li>월 평균 3-4개 프로젝트 동시 진행 및 일정 내 완료</li>
+                                <li>HTML5/CSS3 기반 시맨틱 마크업으로 웹 접근성 준수</li>
+                                <li>jQuery를 활용한 인터랙티브 UI 컴포넌트 개발</li>
+                                <li>클라이언트 요구사항 분석 및 기술적 해결방안 제시</li>
+                                <li>CMS 기반 관리자 페이지 개발 및 운영 가이드 제작</li>
+                            </ul>
+                        </div>
+                        <div class="tech-stack">
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">jQuery</span>
+                            <span class="tech-tag">Bootstrap</span>
+                            <span class="tech-tag">PHP</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">Contact</h2>
+                    <div class="contact-grid">
+                        <div class="contact-item">
+                            <div class="contact-label">Email</div>
+                            <a href="mailto:hong@example.com">hong@example.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-label">GitHub</div>
+                            <a href="https://github.com/hongildong" target="_blank">github.com/hongildong</a>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-label">LinkedIn</div>
+                            <a href="https://linkedin.com/in/hongildong" target="_blank">linkedin.com/in/hongildong</a>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-label">Phone</div>
+                            <a href="tel:010-1234-5678">010-1234-5678</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
