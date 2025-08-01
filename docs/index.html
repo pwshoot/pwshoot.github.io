@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>홍길동</title>
+    <title>홍길동 - 프론트엔드 개발자</title>
     <style>
         * {
             margin: 0;
@@ -261,24 +261,29 @@
             border: 1px solid rgba(96, 165, 250, 0.3);
         }
 
-        .experience-content {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
+        .experience-media {
+            margin-top: 1.5rem;
         }
 
-        .experience-media {
-            display: flex;
+        .experience-images {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
             gap: 1rem;
-            margin-top: 1rem;
+        }
+
+        .experience-image-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .experience-gif {
-            flex: 0 0 200px;
+            width: 100%;
             height: 120px;
             border-radius: 8px;
             overflow: hidden;
             border: 2px solid rgba(148, 163, 184, 0.1);
+            margin-bottom: 0.5rem;
         }
 
         .experience-gif img {
@@ -288,53 +293,54 @@
             border-radius: 6px;
         }
 
-        .experience-links {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            justify-content: center;
-        }
-
-        .project-link {
+        .image-link {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            padding: 0.4rem 0.8rem;
+            gap: 0.3rem;
+            padding: 0.3rem 0.6rem;
             background: rgba(5, 150, 105, 0.1);
             color: #10b981;
             text-decoration: none;
-            border-radius: 8px;
-            font-size: 0.9rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
             font-weight: 500;
             border: 1px solid rgba(5, 150, 105, 0.3);
             transition: all 0.3s ease;
-            width: fit-content;
+            min-height: 28px;
+            justify-content: center;
         }
 
-        .project-link:hover {
+        .image-link:hover {
             background: rgba(5, 150, 105, 0.2);
-            transform: translateX(5px);
+            transform: translateY(-1px);
         }
 
-        .project-link::before {
+        .image-link.disabled {
+            background: rgba(148, 163, 184, 0.1);
+            color: #94a3b8;
+            border-color: rgba(148, 163, 184, 0.3);
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        .image-link::before {
             content: '🔗';
-            font-size: 0.8rem;
+            font-size: 0.7rem;
+        }
+
+        .image-link.disabled::before {
+            content: '⏳';
         }
 
         @media (max-width: 768px) {
-            .experience-media {
-                flex-direction: column;
+            .experience-images {
+                grid-template-columns: repeat(2, 1fr);
             }
-            
-            .experience-gif {
-                flex: none;
-                width: 100%;
-                height: 150px;
-            }
-            
-            .experience-links {
-                flex: none;
+        }
+
+        @media (max-width: 480px) {
+            .experience-images {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -485,6 +491,9 @@
                             <div class="skill-tags">
                                 <span class="skill-tag">FastAPI</span>
                                 <span class="skill-tag">NestJS</span>
+                                <span class="skill-tag">Django</span>
+                                <span class="skill-tag">Flask</span>
+                                <span class="skill-tag">Express.js</span>
                             </div>
                         </div>
                         <div class="skill-category">
@@ -499,6 +508,7 @@
                         <div class="skill-category">
                             <h4>Database & Search</h4>
                             <div class="skill-tags">
+                                <span class="skill-tag">PostgreSQL</span>
                                 <span class="skill-tag">MySQL</span>
                                 <span class="skill-tag">MongoDB</span>
                                 <span class="skill-tag">Redis</span>
@@ -508,8 +518,8 @@
                         <div class="skill-category">
                             <h4>Cloud & Infrastructure</h4>
                             <div class="skill-tags">
-                                <span class="skill-tag">NCloud</span>
                                 <span class="skill-tag">AWS</span>
+                                <span class="skill-tag">NCloud</span>
                                 <span class="skill-tag">Docker</span>
                                 <span class="skill-tag">Kubernetes</span>
                                 <span class="skill-tag">CI/CD</span>
@@ -520,6 +530,9 @@
                             <div class="skill-tags">
                                 <span class="skill-tag">Git</span>
                                 <span class="skill-tag">REST API</span>
+                                <span class="skill-tag">GraphQL</span>
+                                <span class="skill-tag">Microservices</span>
+                                <span class="skill-tag">TDD</span>
                             </div>
                         </div>
                     </div>
@@ -540,13 +553,43 @@
                             마이크로프론트엔드 구조를 도입하여 팀 간 개발 효율성을 향상시켰습니다.
                         </div>
                         <div class="experience-media">
-                            <div class="experience-gif">
-                                <img src="./assets/images/dashboard-demo.gif" alt="Dashboard Demo" onerror="this.src='https://via.placeholder.com/200x120/1e293b/60a5fa?text=Dashboard+Demo'">
-                            </div>
-                            <div class="experience-links">
-                                <a href="https://dashboard-demo.example.com" class="project-link" target="_blank">라이브 데모</a>
-                                <a href="https://github.com/username/dashboard-project" class="project-link" target="_blank">GitHub 저장소</a>
-                                <a href="https://blog.example.com/dashboard-architecture" class="project-link" target="_blank">기술 블로그</a>
+                            <div class="experience-images">
+                                <div class="experience-image-item">
+                                    <div class="experience-gif">
+                                        <img src="./assets/images/dashboard-demo1.gif" alt="Dashboard Overview" onerror="this.src='https://via.placeholder.com/150x120/1e293b/60a5fa?text=Dashboard+1'">
+                                    </div>
+                                    <a href="https://dashboard-demo.example.com" class="image-link" target="_blank">데모 사이트</a>
+                                </div>
+                                <div class="experience-image-item">
+                                    <div class="experience-gif">
+                                        <img src="./assets/images/dashboard-demo2.gif" alt="Admin Panel" onerror="this.src='https://via.placeholder.com/150x120/1e293b/60a5fa?text=Dashboard+2'">
+                                    </div>
+                                    <a href="https://admin-panel.example.com" class="image-link" target="_blank">관리자 패널</a>
+                                </div>
+                                <div class="experience-image-item">
+                                    <div class="experience-gif">
+                                        <img src="./assets/images/dashboard-demo3.gif" alt="API Documentation" onerror="this.src='https://via.placeholder.com/150x120/1e293b/60a5fa?text=Dashboard+3'">
+                                    </div>
+                                    <span class="image-link disabled">준비중</span>
+                                </div>
+                                <div class="experience-image-item">
+                                    <div class="experience-gif">
+                                        <img src="./assets/images/dashboard-demo4.gif" alt="Monitoring System" onerror="this.src='https://via.placeholder.com/150x120/1e293b/60a5fa?text=Dashboard+4'">
+                                    </div>
+                                    <a href="https://monitoring.example.com" class="image-link" target="_blank">모니터링</a>
+                                </div>
+                                <div class="experience-image-item">
+                                    <div class="experience-gif">
+                                        <img src="./assets/images/dashboard-demo5.gif" alt="Analytics Dashboard" onerror="this.src='https://via.placeholder.com/150x120/1e293b/60a5fa?text=Dashboard+5'">
+                                    </div>
+                                    <a href="https://analytics.example.com" class="image-link" target="_blank">분석 대시보드</a>
+                                </div>
+                                <div class="experience-image-item">
+                                    <div class="experience-gif">
+                                        <img src="./assets/images/dashboard-demo6.gif" alt="User Management" onerror="this.src='https://via.placeholder.com/150x120/1e293b/60a5fa?text=Dashboard+6'">
+                                    </div>
+                                    <span class="image-link disabled">개발중</span>
+                                </div>
                             </div>
                         </div>
                         <div class="achievements">
@@ -581,12 +624,43 @@
                             사용자 경험 개선과 비즈니스 성과 향상에 기여했습니다.
                         </div>
                         <div class="experience-media">
-                            <div class="experience-gif">
-                                <img src="./assets/images/ecommerce-demo.gif" alt="E-commerce Demo" onerror="this.src='https://via.placeholder.com/200x120/1e293b/10b981?text=E-commerce+UI'">
-                            </div>
-                            <div class="experience-links">
-                                <a href="https://ecommerce-demo.example.com" class="project-link" target="_blank">프로젝트 사이트</a>
-                                <a href="https://case-study.example.com/ecommerce" class="project-link" target="_blank">케이스 스터디</a>
+                            <div class="experience-images">
+                                <div class="experience-image-item">
+                                    <div class="experience-gif">
+                                        <img src="./assets/images/api-demo1.gif" alt="API Gateway" onerror="this.src='https://via.placeholder.com/150x120/1e293b/10b981?text=API+Gateway'">
+                                    </div>
+                                    <a href="https://api-docs.example.com" class="image-link" target="_blank">API 문서</a>
+                                </div>
+                                <div class="experience-image-item">
+                                    <div class="experience-gif">
+                                        <img src="./assets/images/api-demo2.gif" alt="Database Schema" onerror="this.src='https://via.placeholder.com/150x120/1e293b/10b981?text=Database'">
+                                    </div>
+                                    <span class="image-link disabled">스키마 설계</span>
+                                </div>
+                                <div class="experience-image-item">
+                                    <div class="experience-gif">
+                                        <img src="./assets/images/api-demo3.gif" alt="Performance Test" onerror="this.src='https://via.placeholder.com/150x120/1e293b/10b981?text=Performance'">
+                                    </div>
+                                    <a href="https://performance-report.example.com" class="image-link" target="_blank">성능 리포트</a>
+                                </div>
+                                <div class="experience-image-item">
+                                    <div class="experience-gif">
+                                        <img src="./assets/images/api-demo4.gif" alt="Elasticsearch Index" onerror="this.src='https://via.placeholder.com/150x120/1e293b/10b981?text=Search'">
+                                    </div>
+                                    <a href="https://search-demo.example.com" class="image-link" target="_blank">검색 데모</a>
+                                </div>
+                                <div class="experience-image-item">
+                                    <div class="experience-gif">
+                                        <img src="./assets/images/api-demo5.gif" alt="Load Balancer" onerror="this.src='https://via.placeholder.com/150x120/1e293b/10b981?text=Load+Balance'">
+                                    </div>
+                                    <span class="image-link disabled">로드밸런싱</span>
+                                </div>
+                                <div class="experience-image-item">
+                                    <div class="experience-gif">
+                                        <img src="./assets/images/api-demo6.gif" alt="Caching System" onerror="this.src='https://via.placeholder.com/150x120/1e293b/10b981?text=Cache'">
+                                    </div>
+                                    <a href="https://cache-monitoring.example.com" class="image-link" target="_blank">캐시 모니터링</a>
+                                </div>
                             </div>
                         </div>
                         <div class="achievements">
