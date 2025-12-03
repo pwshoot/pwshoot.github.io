@@ -1,96 +1,141 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>포트폴리오</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background-color: #ffffff;
-            color: #333;
-        }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>포트폴리오</title>
+  <style>
+    :root{
+      --bg: #fafafa;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --radius: 18px;
+      --card-shadow: 0 10px 28px rgba(0,0,0,0.07);
+      --pastel-1:#fdece2;
+      --pastel-2:#e8efff;
+      --pastel-3:#e9f9ee;
+      --pastel-4:#ffe8ee;
+    }
 
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 40px auto;
-        }
+    html,body{margin:0;background:var(--bg);font-family:Inter,'Noto Sans KR',sans-serif;color:var(--text);padding:40px}
 
-        h1 {
-            text-align: center;
-            font-size: 2.8rem;
-            margin-bottom: 40px;
-        }
+    .container{max-width:1500px;margin:0 auto}
+    h1{font-size:2.8rem;margin:0 0 6px;font-weight:800;color:#111}
+    .subtitle{color:var(--muted);font-size:1rem;margin-bottom:32px}
 
-        .project-card {
-            background-color: #f7f9fc; /* 파스텔톤 */
-            border: 1px solid #e0e6ef;
-            border-radius: 12px;
-            padding: 25px;
-            margin-bottom: 25px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-        }
+    /* 프로젝트 카드 */
+    .project-card{
+      display:flex;
+      border-radius:var(--radius);
+      padding:36px;
+      margin-bottom:26px;
+      box-shadow:var(--card-shadow);
+      background:white;
+      align-items:center;
+      gap:36px;
+      border:1px solid rgba(0,0,0,0.04);
+      transition:0.25s ease;
+    }
+    .project-card:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(0,0,0,0.12)}
 
-        .project-title {
-            font-size: 1.6rem;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
+    /* pastel variations */
+    .p-1{background:linear-gradient(145deg,var(--pastel-1),#fff)}
+    .p-2{background:linear-gradient(145deg,var(--pastel-2),#fff)}
+    .p-3{background:linear-gradient(145deg,var(--pastel-3),#fff)}
+    .p-4{background:linear-gradient(145deg,var(--pastel-4),#fff)}
 
-        .project-period {
-            font-size: 0.95rem;
-            color: #666;
-            margin-bottom: 15px;
-        }
+    .project-text{flex:1;min-width:0}
+    .project-title{font-size:1.55rem;font-weight:700;margin-bottom:6px}
+    .project-period{font-size:0.95rem;color:var(--muted);margin-bottom:14px}
+    .project-desc{font-size:1.05rem;line-height:1.65;margin-bottom:16px;color:#374151}
 
-        .project-content {
-            margin-bottom: 15px;
-            line-height: 1.6;
-        }
+    .tags{display:flex;gap:10px;flex-wrap:wrap}
+    .tag{background:rgba(255,255,255,0.55);border:1px solid rgba(0,0,0,0.05);backdrop-filter:blur(6px);padding:6px 12px;border-radius:999px;font-size:0.88rem;color:#374151}
 
-        .project-image {
-            margin-top: 15px;
-            width: 100%;
-            max-height: 250px;
-            object-fit: cover;
-            border-radius: 8px;
-            background: #dfe7f2; /* 이미지 미삽입 시 배경 */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #777;
-            font-size: 0.9rem;
-        }
+    .project-links{margin-top:16px}
+    .btn{padding:10px 16px;border-radius:10px;background:#111827;color:white;text-decoration:none;font-size:0.9rem;font-weight:600;transition:0.2s}
+    .btn:hover{background:#000}
 
-        .skills {
-            margin-top: 10px;
-            font-size: 0.95rem;
-        }
+    /* 우측 이미지 영역 (여러 장 지원) */
+    .project-media{
+      width:480px;
+      max-width:42%;
+      flex-shrink:0;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .media-box{
+      width:100%;
+      height:260px;
+      border-radius:14px;
+      overflow:hidden;
+      background:#ffffffcc;
+      border:1px solid rgba(0,0,0,0.06);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .media-box img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
 
-    </style>
+    .media-placeholder{
+      color:var(--muted);
+      font-size:1rem;
+    }
+
+    /* 네이버 스타일 느낌(좀 더 절제된, 라이트톤, 그린 포인트) */
+    :root{
+      --naver-green:#03c75a;
+    }
+    .project-title{
+      font-family:'Noto Sans KR', sans-serif;
+      font-weight:700;
+    }
+    .btn{
+      background:var(--naver-green);
+      border-radius:8px;
+    }
+    .btn:hover{background:#02b150}
+
+    @media (max-width:980px){ (max-width:980px){
+      .project-card{flex-direction:column;padding:28px}
+      .project-media{width:100%;max-width:100%}
+      .media-box{height:220px}
+    }
+  </style>
 </head>
-
 <body>
-    <div class="container">
-        <h1>포트폴리오</h1>
+<div class="container">
+  <h1>포트폴리오</h1>
+  <div class="subtitle">좌측 텍스트 / 우측 이미지 기반의 프로젝트 카드 템플릿입니다.</div>
 
-        <!-- 프로젝트 예시 카드 구조 -->
-        <div class="project-card">
-            <div class="project-title">프로젝트 제목을 입력하세요</div>
-            <div class="project-period">YYYY.MM - YYYY.MM / 진행중</div>
-            <div class="project-content">
-                여기에 프로젝트 설명을 입력하세요.<br>
-                텍스트 기반으로 자유롭게 적을 수 있습니다.
-            </div>
-            <div class="skills">기술스택: Python, FastAPI, ...</div>
-            <div class="project-image">이미지 또는 GIF를 삽입할 수 있습니다.</div>
-        </div>
-
-        <!-- 위 project-card 블록을 복사하여 여러 항목 추가하면 됩니다 -->
-
+  <!-- 템플릿 -->
+  <div class="project-card p-2">
+    <div class="project-text">
+      <div class="project-title">Docubrain — 웹 기반 문서관리 시스템</div>
+      <div class="project-period">YYYY.MM - 현재</div>
+      <div class="project-desc">문서 변환, 비식별화, 하이브리드 검색, RAG 기반 QA 등 문서지능 기능을 구현하고 실제 서비스에 적용한 프로젝트입니다.</div>
+      <div class="tags">
+        <span class="tag">Python</span>
+        <span class="tag">FastAPI</span>
+        <span class="tag">Elasticsearch</span>
+        <span class="tag">MySQL</span>
+      </div>
+      <div class="project-links"><a class="btn" href="http://docubrain.co.kr" target="_blank">서비스 보기</a></div>
     </div>
+
+    <div class="project-media">
+      <div class="media-box">
+        <!-- 이미지 없는 경우 자동 대응 -->
+        <div class="media-placeholder">이미지가 없습니다</div>
+      </div>
+    </div>
+  </div>
+
+</div>
 </body>
 </html>
