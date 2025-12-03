@@ -1,751 +1,168 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>홍길동 - 프론트엔드 개발자</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #e2e8f0;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        .profile-card {
-            background: rgba(30, 41, 59, 0.95);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(148, 163, 184, 0.1);
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
-            transition: transform 0.3s ease;
-        }
-
-        .profile-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .header {
-            text-align: center;
-            padding: 3rem 2rem;
-            background: linear-gradient(135deg, #1e40af, #059669);
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="25" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="25" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-            opacity: 0.3;
-        }
-
-        .profile-image {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            margin: 0 auto 1.5rem;
-            background: linear-gradient(45deg, #06b6d4, #059669);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            color: white;
-            position: relative;
-            z-index: 1;
-            border: 3px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .name {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .title {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            position: relative;
-            z-index: 1;
-        }
-
-        .content {
-            padding: 2rem;
-        }
-
-        .section {
-            margin-bottom: 2.5rem;
-        }
-
-        .section-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #60a5fa;
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 3px solid #334155;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -3px;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background: #60a5fa;
-            border-radius: 3px;
-        }
-
-        .about {
-            font-size: 1.1rem;
-            color: #cbd5e1;
-            line-height: 1.8;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .skill-category {
-            background: #1e293b;
-            padding: 1.5rem;
-            border-radius: 12px;
-            border-left: 4px solid #60a5fa;
-            border: 1px solid rgba(148, 163, 184, 0.1);
-        }
-
-        .skill-category h4 {
-            color: #60a5fa;
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .skill-tag {
-            background: linear-gradient(135deg, #1e40af, #059669);
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            border: 1px solid rgba(148, 163, 184, 0.2);
-        }
-
-        .experience-item {
-            background: #1e293b;
-            padding: 2rem;
-            border-radius: 12px;
-            margin-bottom: 1.5rem;
-            border-left: 4px solid #10b981;
-            border: 1px solid rgba(148, 163, 184, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .experience-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .experience-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 0.5rem;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .job-title {
-            font-weight: 600;
-            color: #f1f5f9;
-            font-size: 1.2rem;
-            margin-bottom: 0.3rem;
-        }
-
-        .company {
-            color: #10b981;
-            font-weight: 600;
-            font-size: 1rem;
-        }
-
-        .period {
-            color: #94a3b8;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        .job-description {
-            color: #cbd5e1;
-            margin-top: 1rem;
-            line-height: 1.7;
-        }
-
-        .achievements {
-            margin-top: 1rem;
-        }
-
-        .achievements h5 {
-            color: #60a5fa;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .achievement-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .achievement-list li {
-            color: #cbd5e1;
-            padding: 0.3rem 0;
-            padding-left: 1.2rem;
-            position: relative;
-            font-size: 0.95rem;
-        }
-
-        .achievement-list li::before {
-            content: '▶';
-            position: absolute;
-            left: 0;
-            color: #10b981;
-            font-size: 0.8rem;
-        }
-
-        .tech-stack {
-            margin-top: 1rem;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .tech-tag {
-            background: rgba(96, 165, 250, 0.1);
-            color: #60a5fa;
-            padding: 0.2rem 0.6rem;
-            border-radius: 12px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            border: 1px solid rgba(96, 165, 250, 0.3);
-        }
-
-        .experience-media {
-            margin-top: 1.5rem;
-        }
-
-        .experience-images {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-        }
-
-        .experience-image-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .experience-gif {
-            width: 100%;
-            height: 120px;
-            border-radius: 8px;
-            overflow: hidden;
-            border: 2px solid rgba(148, 163, 184, 0.1);
-            margin-bottom: 0.5rem;
-        }
-
-        .experience-gif img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 6px;
-        }
-
-        .image-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.3rem;
-            padding: 0.3rem 0.6rem;
-            background: rgba(5, 150, 105, 0.1);
-            color: #10b981;
-            text-decoration: none;
-            border-radius: 6px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            border: 1px solid rgba(5, 150, 105, 0.3);
-            transition: all 0.3s ease;
-            min-height: 28px;
-            justify-content: center;
-        }
-
-        .image-link:hover {
-            background: rgba(5, 150, 105, 0.2);
-            transform: translateY(-1px);
-        }
-
-        .image-link.disabled {
-            background: rgba(148, 163, 184, 0.1);
-            color: #94a3b8;
-            border-color: rgba(148, 163, 184, 0.3);
-            cursor: not-allowed;
-            pointer-events: none;
-        }
-
-        .image-link::before {
-            content: '🔗';
-            font-size: 0.7rem;
-        }
-
-        .image-link.disabled::before {
-            content: '⏳';
-        }
-
-        @media (max-width: 768px) {
-            .experience-images {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 480px) {
-            .experience-images {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-        }
-
-        .contact-item {
-            background: #1e293b;
-            padding: 1rem;
-            border-radius: 12px;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(148, 163, 184, 0.1);
-        }
-
-        .contact-item:hover {
-            transform: translateY(-2px);
-            border-color: #60a5fa;
-            box-shadow: 0 10px 20px rgba(96, 165, 250, 0.1);
-        }
-
-        .contact-item a {
-            text-decoration: none;
-            color: #60a5fa;
-            font-weight: 500;
-        }
-
-        .contact-label {
-            font-size: 0.9rem;
-            color: #94a3b8;
-            margin-bottom: 0.3rem;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 1rem;
-            }
-
-            .header {
-                padding: 2rem 1rem;
-            }
-
-            .name {
-                font-size: 2rem;
-            }
-
-            .profile-image {
-                width: 120px;
-                height: 120px;
-                font-size: 3rem;
-            }
-
-            .content {
-                padding: 1.5rem;
-            }
-
-            .experience-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-        }
-
-        .floating-shapes {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .shape {
-            position: absolute;
-            opacity: 0.1;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .shape:nth-child(1) {
-            top: 20%;
-            left: 10%;
-            width: 60px;
-            height: 60px;
-            background: #1e40af;
-            border-radius: 50%;
-            animation-delay: 0s;
-        }
-
-        .shape:nth-child(2) {
-            top: 60%;
-            right: 10%;
-            width: 80px;
-            height: 80px;
-            background: #059669;
-            border-radius: 20px;
-            animation-delay: 2s;
-        }
-
-        .shape:nth-child(3) {
-            bottom: 20%;
-            left: 20%;
-            width: 40px;
-            height: 40px;
-            background: #10b981;
-            border-radius: 50%;
-            animation-delay: 4s;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(180deg); }
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>이력서 · 포트폴리오 | swheo</title>
+  <meta name="description" content="Python, FastAPI, NLP & Document AI 엔지니어 포트폴리오" />
+  <style>
+    :root{--bg:#0f1724;--card:#0b1220;--muted:#9ba6b2;--accent:#4f46e5;--glass: rgba(255,255,255,0.03)}
+    html,body{height:100%;margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,'Noto Sans KR',"Helvetica Neue",Arial; background:linear-gradient(180deg,#061226 0%, #071328 60%); color:#e6eef6}
+    .container{max-width:1000px;margin:40px auto;padding:28px}
+    header{display:flex;gap:20px;align-items:center}
+    .avatar{width:84px;height:84px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#06b6d4);display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:28px}
+    h1{margin:0;font-size:22px}
+    p.lead{margin:6px 0 0;color:var(--muted)}
+    .grid{display:grid;grid-template-columns:1fr 340px;gap:20px;margin-top:22px}
+    main{background:var(--glass);padding:18px;border-radius:12px;backdrop-filter: blur(6px)}
+    aside{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:12px}
+    .section{margin-bottom:18px}
+    .section h2{margin:0 0 10px;font-size:16px}
+    .project{border-radius:10px;padding:12px;background:rgba(255,255,255,0.02);margin-bottom:10px}
+    .meta{font-size:13px;color:var(--muted);margin-top:6px}
+    .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+    .tag{background:rgba(255,255,255,0.03);padding:6px 8px;border-radius:8px;font-size:13px;color:var(--muted)}
+    .btn{display:inline-block;padding:8px 12px;border-radius:8px;background:var(--accent);color:white;font-weight:600;text-decoration:none}
+    footer{margin-top:18px;color:var(--muted);font-size:13px}
+    @media(max-width:920px){.grid{grid-template-columns:1fr;}.avatar{width:68px;height:68px}}
+    .search{display:flex;gap:8px}
+    .search input{flex:1;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+  </style>
 </head>
 <body>
-    <div class="floating-shapes">
-        <div class="shape"></div>
-        <div class="shape"></div>
-        <div class="shape"></div>
-    </div>
+  <div class="container">
+    <header>
+      <div class="avatar">SW</div>
+      <div>
+        <h1>swheo — Backend & Document AI Engineer</h1>
+        <p class="lead">Python, FastAPI, Elasticsearch 기반 문서처리 · NLP · 검색·추천·RAG 경험. 문서 변환·OCR·개인정보 비식별화·판결문 요약 등 실무형 AI 시스템 개발 담당.</p>
+      </div>
+    </header>
 
-    <div class="container">
-        <div class="profile-card">
-            <div class="header">
-                <div class="profile-image">👨‍💻</div>
-                <h1 class="name">홍길동</h1>
-                <p class="title">백엔드 개발자</p>
-            </div>
-
-            <div class="content">
-                <div class="section">
-                    <h2 class="section-title">About Me</h2>
-                    <p class="about">
-                        3년차 백엔드 개발자로, 확장 가능하고 안정적인 서버 아키텍처 설계에 전문성을 가지고 있습니다. 
-                        Python FastAPI와 NestJS를 주력으로 하며, 클라우드 인프라와 데이터베이스 최적화에 관심이 많습니다. 
-                        마이크로서비스 아키텍처와 성능 튜닝을 통해 사용자에게 더 나은 서비스를 제공하는 것을 목표로 합니다.
-                    </p>
-                </div>
-
-                <div class="section">
-                    <h2 class="section-title">Skills</h2>
-                    <div class="skills-grid">
-                        <div class="skill-category">
-                            <h4>Backend Framework</h4>
-                            <div class="skill-tags">
-                                <span class="skill-tag">FastAPI</span>
-                                <span class="skill-tag">NestJS</span>
-                                <span class="skill-tag">Django</span>
-                                <span class="skill-tag">Flask</span>
-                                <span class="skill-tag">Express.js</span>
-                            </div>
-                        </div>
-                        <div class="skill-category">
-                            <h4>Programming Language</h4>
-                            <div class="skill-tags">
-                                <span class="skill-tag">Python</span>
-                                <span class="skill-tag">TypeScript</span>
-                                <span class="skill-tag">JavaScript</span>
-                                <span class="skill-tag">Node.js</span>
-                            </div>
-                        </div>
-                        <div class="skill-category">
-                            <h4>Database & Search</h4>
-                            <div class="skill-tags">
-                                <span class="skill-tag">PostgreSQL</span>
-                                <span class="skill-tag">MySQL</span>
-                                <span class="skill-tag">MongoDB</span>
-                                <span class="skill-tag">Redis</span>
-                                <span class="skill-tag">Elasticsearch</span>
-                            </div>
-                        </div>
-                        <div class="skill-category">
-                            <h4>Cloud & Infrastructure</h4>
-                            <div class="skill-tags">
-                                <span class="skill-tag">AWS</span>
-                                <span class="skill-tag">NCloud</span>
-                                <span class="skill-tag">Docker</span>
-                                <span class="skill-tag">Kubernetes</span>
-                                <span class="skill-tag">CI/CD</span>
-                            </div>
-                        </div>
-                        <div class="skill-category">
-                            <h4>Tools & Others</h4>
-                            <div class="skill-tags">
-                                <span class="skill-tag">Git</span>
-                                <span class="skill-tag">REST API</span>
-                                <span class="skill-tag">GraphQL</span>
-                                <span class="skill-tag">Microservices</span>
-                                <span class="skill-tag">TDD</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="section">
-                    <h2 class="section-title">Experience</h2>
-                    <div class="experience-item">
-                        <div class="experience-header">
-                            <div>
-                                <div class="job-title">Senior Frontend Developer</div>
-                                <div class="company">테크이노베이션</div>
-                            </div>
-                            <div class="period">2023.01 - 현재</div>
-                        </div>
-                        <div class="job-description">
-                            대규모 B2B SaaS 플랫폼의 프론트엔드 아키텍처 설계 및 개발을 담당하며, 
-                            마이크로프론트엔드 구조를 도입하여 팀 간 개발 효율성을 향상시켰습니다.
-                        </div>
-                        <div class="experience-media">
-                            <div class="experience-images">
-                                <div class="experience-image-item">
-                                    <div class="experience-gif">
-                                        <img src="./assets/images/dashboard-demo1.gif" alt="Dashboard Overview" onerror="this.src='https://via.placeholder.com/150x120/1e293b/60a5fa?text=Dashboard+1'">
-                                    </div>
-                                    <a href="https://dashboard-demo.example.com" class="image-link" target="_blank">데모 사이트</a>
-                                </div>
-                                <div class="experience-image-item">
-                                    <div class="experience-gif">
-                                        <img src="./assets/images/dashboard-demo2.gif" alt="Admin Panel" onerror="this.src='https://via.placeholder.com/150x120/1e293b/60a5fa?text=Dashboard+2'">
-                                    </div>
-                                    <a href="https://admin-panel.example.com" class="image-link" target="_blank">관리자 패널</a>
-                                </div>
-                                <div class="experience-image-item">
-                                    <div class="experience-gif">
-                                        <img src="./assets/images/dashboard-demo3.gif" alt="API Documentation" onerror="this.src='https://via.placeholder.com/150x120/1e293b/60a5fa?text=Dashboard+3'">
-                                    </div>
-                                    <span class="image-link disabled">준비중</span>
-                                </div>
-                                <div class="experience-image-item">
-                                    <div class="experience-gif">
-                                        <img src="./assets/images/dashboard-demo4.gif" alt="Monitoring System" onerror="this.src='https://via.placeholder.com/150x120/1e293b/60a5fa?text=Dashboard+4'">
-                                    </div>
-                                    <a href="https://monitoring.example.com" class="image-link" target="_blank">모니터링</a>
-                                </div>
-                                <div class="experience-image-item">
-                                    <div class="experience-gif">
-                                        <img src="./assets/images/dashboard-demo5.gif" alt="Analytics Dashboard" onerror="this.src='https://via.placeholder.com/150x120/1e293b/60a5fa?text=Dashboard+5'">
-                                    </div>
-                                    <a href="https://analytics.example.com" class="image-link" target="_blank">분석 대시보드</a>
-                                </div>
-                                <div class="experience-image-item">
-                                    <div class="experience-gif">
-                                        <img src="./assets/images/dashboard-demo6.gif" alt="User Management" onerror="this.src='https://via.placeholder.com/150x120/1e293b/60a5fa?text=Dashboard+6'">
-                                    </div>
-                                    <span class="image-link disabled">개발중</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="achievements">
-                            <h5>주요 성과</h5>
-                            <ul class="achievement-list">
-                                <li>React + TypeScript 기반 대시보드 시스템 설계 및 구현</li>
-                                <li>웹팩 최적화를 통한 번들 크기 40% 감소 및 로딩 시간 2초 단축</li>
-                                <li>Code Splitting과 Lazy Loading 도입으로 초기 로딩 성능 50% 개선</li>
-                                <li>디자인 시스템 구축으로 개발 생산성 30% 향상</li>
-                                <li>Jest/RTL 기반 테스트 커버리지 85% 달성</li>
-                            </ul>
-                        </div>
-                        <div class="tech-stack">
-                            <span class="tech-tag">React</span>
-                            <span class="tech-tag">TypeScript</span>
-                            <span class="tech-tag">Next.js</span>
-                            <span class="tech-tag">Redux Toolkit</span>
-                            <span class="tech-tag">Styled Components</span>
-                            <span class="tech-tag">Jest</span>
-                        </div>
-                    </div>
-                    <div class="experience-item">
-                        <div class="experience-header">
-                            <div>
-                                <div class="job-title">Frontend Developer</div>
-                                <div class="company">디지털솔루션즈</div>
-                            </div>
-                            <div class="period">2022.03 - 2022.12</div>
-                        </div>
-                        <div class="job-description">
-                            전자상거래 플랫폼의 사용자 인터페이스 개발 및 성능 최적화를 통해 
-                            사용자 경험 개선과 비즈니스 성과 향상에 기여했습니다.
-                        </div>
-                        <div class="experience-media">
-                            <div class="experience-images">
-                                <div class="experience-image-item">
-                                    <div class="experience-gif">
-                                        <img src="./assets/images/api-demo1.gif" alt="API Gateway" onerror="this.src='https://via.placeholder.com/150x120/1e293b/10b981?text=API+Gateway'">
-                                    </div>
-                                    <a href="https://api-docs.example.com" class="image-link" target="_blank">API 문서</a>
-                                </div>
-                                <div class="experience-image-item">
-                                    <div class="experience-gif">
-                                        <img src="./assets/images/api-demo2.gif" alt="Database Schema" onerror="this.src='https://via.placeholder.com/150x120/1e293b/10b981?text=Database'">
-                                    </div>
-                                    <span class="image-link disabled">스키마 설계</span>
-                                </div>
-                                <div class="experience-image-item">
-                                    <div class="experience-gif">
-                                        <img src="./assets/images/api-demo3.gif" alt="Performance Test" onerror="this.src='https://via.placeholder.com/150x120/1e293b/10b981?text=Performance'">
-                                    </div>
-                                    <a href="https://performance-report.example.com" class="image-link" target="_blank">성능 리포트</a>
-                                </div>
-                                <div class="experience-image-item">
-                                    <div class="experience-gif">
-                                        <img src="./assets/images/api-demo4.gif" alt="Elasticsearch Index" onerror="this.src='https://via.placeholder.com/150x120/1e293b/10b981?text=Search'">
-                                    </div>
-                                    <a href="https://search-demo.example.com" class="image-link" target="_blank">검색 데모</a>
-                                </div>
-                                <div class="experience-image-item">
-                                    <div class="experience-gif">
-                                        <img src="./assets/images/api-demo5.gif" alt="Load Balancer" onerror="this.src='https://via.placeholder.com/150x120/1e293b/10b981?text=Load+Balance'">
-                                    </div>
-                                    <span class="image-link disabled">로드밸런싱</span>
-                                </div>
-                                <div class="experience-image-item">
-                                    <div class="experience-gif">
-                                        <img src="./assets/images/api-demo6.gif" alt="Caching System" onerror="this.src='https://via.placeholder.com/150x120/1e293b/10b981?text=Cache'">
-                                    </div>
-                                    <a href="https://cache-monitoring.example.com" class="image-link" target="_blank">캐시 모니터링</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="achievements">
-                            <h5>주요 성과</h5>
-                            <ul class="achievement-list">
-                                <li>반응형 웹 디자인 구현으로 모바일 전환율 25% 증가</li>
-                                <li>이미지 최적화 및 CDN 도입으로 페이지 로딩 속도 3초 단축</li>
-                                <li>장바구니 및 결제 플로우 UX 개선으로 구매 완료율 15% 상승</li>
-                                <li>SEO 최적화를 통한 검색 엔진 유입 35% 증가</li>
-                                <li>크로스 브라우저 호환성 확보 (IE11+ 지원)</li>
-                            </ul>
-                        </div>
-                        <div class="tech-stack">
-                            <span class="tech-tag">Vue.js</span>
-                            <span class="tech-tag">JavaScript ES6+</span>
-                            <span class="tech-tag">SCSS</span>
-                            <span class="tech-tag">Webpack</span>
-                            <span class="tech-tag">REST API</span>
-                        </div>
-                    </div>
-                    <div class="experience-item">
-                        <div class="experience-header">
-                            <div>
-                                <div class="job-title">Junior Web Developer</div>
-                                <div class="company">크리에이티브웹</div>
-                            </div>
-                            <div class="period">2021.06 - 2022.02</div>
-                        </div>
-                        <div class="job-description">
-                            다양한 업종의 클라이언트를 위한 반응형 웹사이트 개발 및 유지보수를 담당하며, 
-                            웹 표준과 접근성을 준수한 고품질 웹사이트를 제작했습니다.
-                        </div>
-                        <div class="experience-media">
-                            <div class="experience-gif">
-                                <img src="./assets/images/portfolio-demo.gif" alt="Portfolio Demo" onerror="this.src='https://via.placeholder.com/200x120/1e293b/f59e0b?text=Portfolio+Sites'">
-                            </div>
-                            <div class="experience-links">
-                                <a href="https://portfolio.example.com" class="project-link" target="_blank">포트폴리오 모음</a>
-                                <a href="https://codepen.io/username" class="project-link" target="_blank">CodePen</a>
-                            </div>
-                        </div>
-                        <div class="achievements">
-                            <h5>주요 성과</h5>
-                            <ul class="achievement-list">
-                                <li>월 평균 3-4개 프로젝트 동시 진행 및 일정 내 완료</li>
-                                <li>HTML5/CSS3 기반 시맨틱 마크업으로 웹 접근성 준수</li>
-                                <li>jQuery를 활용한 인터랙티브 UI 컴포넌트 개발</li>
-                                <li>클라이언트 요구사항 분석 및 기술적 해결방안 제시</li>
-                                <li>CMS 기반 관리자 페이지 개발 및 운영 가이드 제작</li>
-                            </ul>
-                        </div>
-                        <div class="tech-stack">
-                            <span class="tech-tag">HTML5</span>
-                            <span class="tech-tag">CSS3</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">jQuery</span>
-                            <span class="tech-tag">Bootstrap</span>
-                            <span class="tech-tag">PHP</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="section">
-                    <h2 class="section-title">Contact</h2>
-                    <div class="contact-grid">
-                        <div class="contact-item">
-                            <div class="contact-label">Email</div>
-                            <a href="mailto:hong@example.com">hong@example.com</a>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-label">GitHub</div>
-                            <a href="https://github.com/hongildong" target="_blank">github.com/hongildong</a>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-label">LinkedIn</div>
-                            <a href="https://linkedin.com/in/hongildong" target="_blank">linkedin.com/in/hongildong</a>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-label">Phone</div>
-                            <a href="tel:010-1234-5678">010-1234-5678</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div class="grid">
+      <main>
+        <div class="section">
+          <h2>소개 (한 문단)</h2>
+          <p>백엔드 개발과 자연어처리 기반 문서 AI를 결합한 시스템 설계 및 구현을 전문으로 합니다. 문서 변환, OCR, 개인정보 비식별화, 판결문 요약, 계약서 분석 등 문서 중심의 파이프라인을 설계·배포했으며, Elasticsearch 기반 검색 및 RAG(검색-증강 생성) 방식의 QA 모델 운영 경험을 보유하고 있습니다.</p>
         </div>
+
+        <div class="section">
+          <h2>주요 프로젝트</h2>
+
+          <div class="project">
+            <strong>Docubrain — 웹 기반 문서관리 시스템</strong>
+            <div class="meta">YYYY.MM – 진행중 · Python / FastAPI / Elasticsearch / MySQL</div>
+            <div class="tags">
+              <span class="tag">문서변환</span><span class="tag">개인정보 비식별화</span><span class="tag">하이브리드 검색</span><span class="tag">RAG QA</span>
+            </div>
+            <div style="margin-top:8px"><a class="btn" href="http://docubrain.co.kr" target="_blank">서비스 확인</a></div>
+          </div>
+
+          <div class="project">
+            <strong>판결문 요약 모델 개발 (NIA 과제)</strong>
+            <div class="meta">YYYY.MM – 진행중 · Python / PyTorch</div>
+            <div class="tags"><span class="tag">BART Fine-tuning</span><span class="tag">데이터셋 구축</span></div>
+          </div>
+
+          <div class="project">
+            <strong>문서 변환 API</strong>
+            <div class="meta">YYYY.MM – 진행중 · Python / FastAPI</div>
+            <div class="tags"><span class="tag">MS Office → PDF/HTML</span><span class="tag">HWP → PDF/HTML</span><span class="tag">PDF → HTML</span></div>
+          </div>
+
+          <div class="project">
+            <strong>OCR API 개발</strong>
+            <div class="meta">YYYY.MM – 진행중 · Python / PyTorch / FastAPI</div>
+            <div class="tags"><span class="tag">CNN OCR</span><span class="tag">문서 이미지 텍스트 추출</span></div>
+          </div>
+
+          <div class="project">
+            <strong>개인정보 비식별화 API</strong>
+            <div class="meta">YYYY.MM – 진행중 · Python / Redis / PyTorch / FastAPI</div>
+            <div class="tags"><span class="tag">BERT NER</span><span class="tag">패턴 업데이트</span></div>
+          </div>
+
+          <div class="project">
+            <strong>계약서 분석기</strong>
+            <div class="meta">YYYY.MM – 진행중 · Python / PyTorch / FastAPI</div>
+            <div class="tags"><span class="tag">조항 구조화</span><span class="tag">조항 분류</span><span class="tag">문서 비교 API</span></div>
+            <div style="margin-top:8px"><a class="btn" href="http://ailaw.co.kr/" target="_blank">서비스 확인</a></div>
+          </div>
+
+          <div class="project">
+            <strong>텔레그램 챗봇 (청탁금지법 가이드)</strong>
+            <div class="meta">YYYY.MM – 진행중 · Python / Telegram / MySQL</div>
+            <div class="tags"><span class="tag">State Machine</span></div>
+          </div>
+
+          <div class="project">
+            <strong>법률정보시스템 (ULEX)</strong>
+            <div class="meta">YYYY.MM – 진행중 · Python / Elasticsearch / FastAPI / MySQL</div>
+            <div class="tags"><span class="tag">데이터 수집 자동화</span><span class="tag">검색·추천</span></div>
+            <div style="margin-top:8px"><a class="btn" href="https://www.ulex.co.kr/" target="_blank">서비스 확인</a></div>
+          </div>
+
+        </div>
+
+        <div class="section">
+          <h2>기술 스택</h2>
+          <div class="tags">
+            <span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">PyTorch</span><span class="tag">TensorFlow</span><span class="tag">Elasticsearch</span><span class="tag">MySQL</span><span class="tag">Redis</span>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>간단한 성과 예시</h2>
+          <ul style="margin:8px 0 0 18px;color:var(--muted)">
+            <li>문서 변환 파이프라인 안정화 및 변환 성공률 개선</li>
+            <li>BART 기반 판결문 요약 모델로 요약 품질 개선 실험 수행</li>
+            <li>Elasticsearch 기반 검색 품질 개선 및 추천 시스템 도입</li>
+          </ul>
+        </div>
+
+      </main>
+
+      <aside>
+        <div class="section">
+          <h2>연락처</h2>
+          <p style="margin:6px 0 0">이메일: <strong>rskm@codnut.com</strong></p>
+          <p style="margin:6px 0 0">GitHub: <strong>github.com/your-username</strong> (수정 필요)</p>
+        </div>
+
+        <div class="section">
+          <h2>소개글 (이력서용)</h2>
+          <p style="color:var(--muted);margin:6px 0 0">Python·FastAPI 기반 백엔드 개발자이자 문서처리·NLP 전공 엔지니어로, 문서 변환·OCR·비식별화·요약·계약서 분석 등 실무 시스템을 설계·구현했습니다. 검색·추천·RAG QA 경험을 바탕으로 서비스 품질 향상과 운영 안정성에 집중합니다.</p>
+        </div>
+
+        <div class="section">
+          <h2>페이지 기능</h2>
+          <p style="color:var(--muted);margin:6px 0 0">이 페이지는 GitHub Pages에 업로드 가능한 단일 index.html입니다. 원하시면 영어 버전, 깃허브 마크다운 자동 생성, 또는 프로젝트별 상세 페이지로 확장해드리겠습니다.</p>
+        </div>
+
+        <div class="section">
+          <h2>간단한 사용법</h2>
+          <ol style="color:var(--muted);margin:6px 0 0 18px;padding:0">
+            <li>파일명을 <code>index.html</code>로 저장</li>
+            <li>레포지토리 루트에 배치 후 GitHub Pages 활성화</li>
+            <li>이미지·링크·날짜 등 개인정보는 필요에 따라 수정</li>
+          </ol>
+        </div>
+
+      </aside>
     </div>
+
+    <footer>
+      © {new Date().getFullYear()} swheo · 포트폴리오 페이지 — 생성: ChatGPT
+    </footer>
+  </div>
+
+  <script>
+    // footer 연도 치환 (자바스크립트 안전 적용)
+    (function(){
+      try{
+        document.querySelector('footer').innerHTML = '© ' + new Date().getFullYear() + ' swheo · 포트폴리오 페이지';
+      }catch(e){}
+    })();
+  </script>
 </body>
 </html>
