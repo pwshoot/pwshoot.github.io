@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>포트폴리오</title>
+  <title>포트폴리오 - Seongwan Heo</title>
   <style>
     :root{
-      --bg:#ffffff;
-      --card:#f7f8fa;
+      --bg:#fafafa;
+      --card:#ffffff;
       --border:#e6e8eb;
       --text:#1f2429;
       --muted:#6f7780;
-      --accent:#00c473; /* 네이버 느낌의 포인트 컬러 */
+      --accent:#00c473;
       --radius:20px;
     }
 
@@ -20,29 +20,67 @@
       background:var(--bg);
       font-family:'Inter','Noto Sans KR',sans-serif;
       color:var(--text);
-      padding:50px 0;
+    }
+
+    /* WWDC 스타일 헤더 */
+    .portfolio-header {
+      width: 100%;
+      padding: 120px 20px 100px;
+      text-align: center;
+      background: radial-gradient(circle at 20% 20%, rgba(255,80,200,0.45), transparent 55%),
+                  radial-gradient(circle at 80% 30%, rgba(80,130,255,0.45), transparent 55%),
+                  radial-gradient(circle at 50% 80%, rgba(90,255,190,0.45), transparent 55%),
+                  #111;
+      color: #fff;
+    }
+
+    .portfolio-header h1 {
+      font-size: 64px;
+      font-weight: 700;
+      margin: 0 0 10px;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+    .portfolio-header .role {
+      font-size: 22px;
+      font-weight: 400;
+      margin-bottom: 20px;
+      color: #e0e0e0;
+    }
+    .portfolio-header .bio {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 25px;
+      color: #d6d6d6;
+    }
+    .portfolio-header .email {
+      font-size: 17px;
+      color: #7fd1ff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .portfolio-header .email:hover {
+      opacity: 0.8;
     }
 
     .container{
       width:100%;
       max-width:1200px;
       margin:0 auto;
-      padding:0 30px;
+      padding:50px 30px;
     }
 
-    h1{
-      font-size:2.8rem;
-      font-weight:800;
+    h2{
+      font-size:2.2rem;
+      font-weight:700;
       margin-bottom:40px;
-      color:#111;
       text-align:center;
+      color:#111;
     }
 
-    /* 새로운 카드 디자인 — 네이버 스타일: 미니멀 + 선명한 그린 포인트 */
     .project-card{
       display:flex;
       gap:40px;
-      background:#fff;
+      background:var(--card);
       border:1px solid var(--border);
       border-radius:var(--radius);
       padding:40px;
@@ -88,7 +126,6 @@
       color:#333;
     }
 
-    /* 링크 버튼 */
     .btn{
       margin-top:16px;
       padding:4px 10px;
@@ -107,7 +144,6 @@
     }
     .btn:hover{opacity:0.75;transform:translateY(-2px);}
 
-    /* 이미지 영역 — 여러 장 가능 */
     .project-media{
       width:420px;
       flex-shrink:0;
@@ -132,13 +168,11 @@
       height:100%;
       object-fit:cover;
     }
-
     .media-placeholder{
       color:var(--muted);
       font-size:0.95rem;
     }
 
-    /* 반응형 */
     @media(max-width:960px){
       .project-card{flex-direction:column;padding:30px}
       .project-media{width:100%}
@@ -146,33 +180,86 @@
     }
   </style>
 </head>
-
 <body>
-<div class="container">
-  <h1>포트폴리오</h1>
 
-  <!-- 템플릿 카드 -->
+<header class="portfolio-header">
+  <div class="portfolio-header__inner">
+    <h1>Seongwan Heo</h1>
+    <p class="role">AI Systems Engineer · Product Developer</p>
+    <p class="bio">데이터 기반 제품을 설계하고 구축합니다.<br/>AI, 웹서비스, 클라우드 인프라 중심으로 다양한 프로젝트를 만들어왔습니다.</p>
+    <a href="mailto:pwshoot@gmail.com" class="email">pwshoot@gmail.com</a>
+  </div>
+</header>
+
+<div class="container">
+  <h2>프로젝트</h2>
+
+  <!-- 프로젝트 카드 시작 -->
+
   <div class="project-card">
     <div class="project-text">
-      <div class="project-title">Docubrain — 웹 기반 문서관리 시스템</div>
-      <div class="project-period">YYYY.MM - 현재</div>
-      <div class="project-desc">문서 변환, 비식별화, 하이브리드 검색, RAG 기반 QA 등 문서 지능 기능을 구현한 서비스입니다.</div>
+      <div class="project-title">(코드넛) 퀘스트보드</div>
+      <div class="project-period">진행중</div>
+      <div class="project-desc">학습자료 생성 에이전트 개발
+- 에이전트를 통해 학습자료 생성
+- 자료를 올리거나, 만들고 싶은 주제를 입력해 자동생성</div>
       <div class="tags">
-        <span class="tag">Python</span>
+        <span class="tag">Kubernetes</span>
         <span class="tag">FastAPI</span>
         <span class="tag">Elasticsearch</span>
-        <span class="tag">MySQL</span>
       </div>
-      <a class="btn" href="http://docubrain.co.kr" target="_blank">바로가기</a>
+      <a href="https://board.questbook.io/" class="btn">보기</a>
     </div>
-
     <div class="project-media">
-      <div class="media-box"><div class="media-placeholder">이미지가 없습니다</div></div>
-      <!-- 여러 장도 OK: 복사해서 넣으면 됨 -->
-      <!-- <div class="media-box"><img src="" /></div> -->
+      <div class="media-box"><span class="media-placeholder">이미지 없음</span></div>
     </div>
   </div>
 
+  <div class="project-card">
+    <div class="project-text">
+      <div class="project-title">(코드넛) 퀘스트북</div>
+      <div class="project-period">진행중</div>
+      <div class="project-desc">클라우드 기반 온라인 문제집 제작·배포
+- AI를 활용한 단어 암기장 생성
+- 과학/역사 챗봇
+- 문항생성 AI
+- 서술형 문제 평가 AI</div>
+      <div class="tags">
+        <span class="tag">FastAPI</span>
+        <span class="tag">Elasticsearch</span>
+      </div>
+      <a href="https://questbook.io/questHome" class="btn">보기</a>
+    </div>
+    <div class="project-media">
+      <div class="media-box"><span class="media-placeholder">이미지 없음</span></div>
+    </div>
+  </div>
+
+  <div class="project-card">
+    <div class="project-text">
+      <div class="project-title">(인텔리콘) Docubrain</div>
+      <div class="project-period">진행중</div>
+      <div class="project-desc">웹 기반 문서관리 시스템
+- 문서 자동 변환 엔진 개발 (hwp, doc, pptx 등 → PDF, HTML)
+- 개인정보 비식별화 기능 개발
+- 키워드 기반 + Semantic 기반 하이브리드 검색 엔진 개발
+- RAG 기반 QA 모델 설계 및 구축</div>
+      <div class="tags">
+        <span class="tag">Python</span>
+        <span class="tag">Elasticsearch</span>
+        <span class="tag">FastAPI</span>
+        <span class="tag">MySQL</span>
+      </div>
+      <a href="http://docubrain.co.kr" class="btn">보기</a>
+    </div>
+    <div class="project-media">
+      <div class="media-box"><span class="media-placeholder">이미지 없음</span></div>
+    </div>
+  </div>
+
+  <!-- 추가 프로젝트 카드도 동일한 구조로 넣으면 됩니다 -->
+
 </div>
+
 </body>
 </html>
