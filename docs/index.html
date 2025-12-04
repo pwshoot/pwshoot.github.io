@@ -48,6 +48,7 @@
     .project-media{width:420px; flex-shrink:0; display:flex; flex-direction:column; gap:14px;}
     .media-box{width:100%; height:240px; background:#f3f5f7; border:1px solid var(--border); border-radius:16px; overflow:hidden; display:flex; justify-content:center; align-items:center; position:relative; cursor:pointer;}
     .media-box img{width:100%; height:100%; object-fit:cover; display:block;}
+    .media-box iframe{width:100%; height:100%; display:block; border:none;}
     .media-placeholder{color:var(--muted); font-size:0.95rem;}
 
     .image-dots{display:flex; justify-content:center; gap:6px; margin-top:8px;}
@@ -73,22 +74,24 @@
 <header class="portfolio-header">
   <div class="portfolio-header__inner">
     <h1>허성완</h1>
-    <p class="role">AI Systems Engineer · Product Developer</p>
-    <p class="bio">데이터 기반 제품을 설계하고 구축합니다.<br/>AI, 웹서비스, 클라우드 인프라 중심으로 다양한 프로젝트를 만들어왔습니다.</p>
+    <p class="role">AI · Backend · DevOps Engineer</p>
+    <p class="bio">10년차 개발자로서 AI 모델 개발부터 운영 배포까지 전 과정을 경험했습니다.<br/>최근에는 AI를 활용한 교육용 서비스를 개발하며 데이터 기반 기능과 개인화 경험을 구현했습니다.<br/>사용자에게 실제로 도움이 되는 기술을 만드는 데 집중하고 있습니다.</p>
     <a href="mailto:pwshoot@gmail.com" class="email">pwshoot@gmail.com</a>
   </div>
 </header>
 
 <div class="container">
-  <h2>포트폴리오</h2>
+  <h2></h2>
 
   <!-- 프로젝트 1: 퀘스트보드 -->
   <div class="project-card">
     <div class="project-text">
       <div class="project-title">(코드넛) 퀘스트보드</div>
-      <div class="project-period">학습자료 생성 에이전트</div>
-      <div class="project-desc">- 에이전트를 통해 학습자료 생성
-- 자료를 올리거나, 만들고 싶은 주제를 입력해 자동생성</div>
+      <div class="project-period">2025 | 학습자료 생성 에이전트</div>
+      <div class="project-desc">LLM 기반 학습자료 자동 생성 시스템 개발
+- RAG 파이프라인 설계 및 문서 임베딩 최적화
+- Agent orchestration을 통한 콘텐츠 생성 자동화
+- Kubernetes 기반 마이크로서비스 아키텍처 구축</div>
       <div class="tags">
         <span class="tag">Kubernetes</span>
         <span class="tag">FastAPI</span>
@@ -113,11 +116,11 @@
   <div class="project-card">
     <div class="project-text">
       <div class="project-title">(코드넛) 퀘스트북</div>
-      <div class="project-period">클라우드 기반 온라인 문제집 제작·배포</div>
-      <div class="project-desc">- AI를 활용한 단어 암기장 생성
-- 과학/역사 챗봇
-- 문항생성 AI
-- 서술형 문제 평가 AI</div>
+      <div class="project-period">2024 | 클라우드 기반 온라인 문제집 제작·배포</div>
+      <div class="project-desc">교육 콘텐츠 생성 및 평가 AI 시스템 개발
+- LLM 기반 문항 자동 생성 및 난이도 조정 모델
+- 서술형 답안 자동 채점 시스템 (NLU 기반)
+- 도메인 특화 챗봇 (과학/역사) 및 단어 암기장 생성 기능</div>
       <div class="tags">
         <span class="tag">FastAPI</span>
         <span class="tag">Elasticsearch</span>
@@ -126,7 +129,10 @@
     </div>
     <div class="project-media">
       <div class="media-box">
-        <span class="media-placeholder">이미지 준비중</span>
+        <img src="assert/images/book-1.png" alt="프로젝트 이미지">
+        <img src="assert/images/book-2.png" alt="프로젝트 이미지">
+        <img src="assert/images/book-3.png" alt="프로젝트 이미지">
+        <img src="assert/images/book-4.png" alt="프로젝트 이미지">
       </div>
       <div class="image-dots"></div>
     </div>
@@ -136,11 +142,11 @@
   <div class="project-card">
     <div class="project-text">
       <div class="project-title">(인텔리콘) Docubrain</div>
-      <div class="project-period">웹 기반 문서관리 시스템</div>
-      <div class="project-desc">- 문서 자동 변환 엔진 개발 (hwp, doc, pptx, .. -> PDF, HTML)
-- 개인정보 비식별화 기능 개발
-- 키워드 기반 + Semantic 기반 하이브리드 검색 엔진 개발
-- RAG 기반 QA 모델 설계 및 구축</div>
+      <div class="project-period">2023 | 웹 기반 문서관리 시스템</div>
+      <div class="project-desc">엔터프라이즈 문서 관리 및 검색 솔루션 개발
+- 다양한 포맷(hwp, doc, pptx 등) 지원 문서 변환 엔진 구현
+- Hybrid 검색 엔진 (Keyword + Semantic Embedding) 설계
+- RAG 기반 문서 QA 시스템 및 BERT 기반 개인정보 비식별화 모델</div>
       <div class="tags">
         <span class="tag">Python</span>
         <span class="tag">Elasticsearch</span>
@@ -151,7 +157,7 @@
     </div>
     <div class="project-media">
       <div class="media-box">
-        <span class="media-placeholder">이미지 준비중</span>
+        <iframe src="https://www.youtube-nocookie.com/embed/Gv7JKarbP6g?rel=0&modestbranding=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
       </div>
       <div class="image-dots"></div>
     </div>
@@ -161,16 +167,19 @@
   <div class="project-card">
     <div class="project-text">
       <div class="project-title">(인텔리콘) 판결문 요약 모델 개발</div>
-      <div class="project-period">판결문요약 과제 수행 (NIA 과제)</div>
-      <div class="project-desc">판결문 원문 및 요약문 데이터를 통해 BART fine tuning</div>
+      <div class="project-period">2023 | 판결문요약 과제 수행 (NIA 과제)</div>
+      <div class="project-desc">법률 도메인 특화 텍스트 요약 모델 개발
+- 판결문 데이터셋 전처리 및 BART 모델 Fine-tuning
+- 법률 용어 및 문서 구조를 고려한 Summarization 최적화</div>
       <div class="tags">
         <span class="tag">Python</span>
         <span class="tag">PyTorch</span>
       </div>
+      <a href="https://aihub.or.kr/aihubdata/data/view.do?dataSetSn=71723" class="btn" target="_blank">보기</a>
     </div>
     <div class="project-media">
       <div class="media-box">
-        <span class="media-placeholder">이미지 준비중</span>
+        <img src="assert/images/model-1.gif" alt="프로젝트 이미지">
       </div>
       <div class="image-dots"></div>
     </div>
@@ -180,10 +189,10 @@
   <div class="project-card">
     <div class="project-text">
       <div class="project-title">(인텔리콘) 문서 변환 API 개발</div>
-      <div class="project-period"></div>
-      <div class="project-desc">- MS 오피스 문서(.doc, .docx, .ppt, pptx, .xls, .xlsx)를 PDF 또는 HTML로 변환
-- 한컴 오피스 문서(.hwp, .hwpx)를 PDF 또는 HTML로 변환
-- PDF 문서를 HTML로 변환</div>
+      <div class="project-period">2022 | 범용 문서 변환 엔진</div>
+      <div class="project-desc">다양한 포맷 지원 문서 변환 API 시스템 구축
+- MS Office / 한컴 오피스 문서를 PDF, HTML로 변환하는 RESTful API
+- 대용량 문서 처리 최적화 및 비동기 작업 큐 시스템 설계</div>
       <div class="tags">
         <span class="tag">Python</span>
         <span class="tag">FastAPI</span>
@@ -191,7 +200,7 @@
     </div>
     <div class="project-media">
       <div class="media-box">
-        <span class="media-placeholder">이미지 준비중</span>
+        <img src="assert/images/converter-1.png" alt="프로젝트 이미지">
       </div>
       <div class="image-dots"></div>
     </div>
@@ -201,8 +210,10 @@
   <div class="project-card">
     <div class="project-text">
       <div class="project-title">(인텔리콘) OCR API 개발</div>
-      <div class="project-period">CNN 기반 문자인식 모델 및 API 개발</div>
-      <div class="project-desc">PDF 또는 문서(.doc) 내에 저장된 이미지에서 텍스트 추출</div>
+      <div class="project-period">2021 | CNN 기반 문자인식 모델 및 API 개발</div>
+      <div class="project-desc">문서 내 이미지 텍스트 인식 시스템 개발
+- CNN 기반 한글/영문 OCR 모델 학습 및 최적화
+- PDF/문서 내 임베드된 이미지에서 텍스트 추출 API 구축</div>
       <div class="tags">
         <span class="tag">Python</span>
         <span class="tag">PyTorch</span>
@@ -211,7 +222,7 @@
     </div>
     <div class="project-media">
       <div class="media-box">
-        <span class="media-placeholder">이미지 준비중</span>
+        <!-- <span class="media-placeholder">이미지 준비중</span> -->
       </div>
       <div class="image-dots"></div>
     </div>
@@ -221,10 +232,11 @@
   <div class="project-card">
     <div class="project-text">
       <div class="project-title">(인텔리콘) 개인정보 비식별화 API 개발</div>
-      <div class="project-period">텍스트 또는 HTML에서 개인정보를 비식별화</div>
-      <div class="project-desc">- 성명추출을 위한 NER 모델 개발: BERT 기반
-- API를 통한 개인정보추출 패턴 업데이트 기능: redis 활용 새로운 패턴 업데이트
-- 개인정보 유형: 성명, 주민번호, 주소, 전화번호, 자동차번호, 외국인등록번호, 계좌번호 등</div>
+      <div class="project-period">2021 | 텍스트/HTML 개인정보 자동 비식별화</div>
+      <div class="project-desc">AI 기반 개인정보 탐지 및 마스킹 시스템 개발
+- BERT 기반 NER 모델로 성명 등 개인정보 엔티티 추출
+- Redis 기반 패턴 매칭 엔진 (주민번호, 전화번호, 주소 등 7종 이상)
+- 동적 패턴 업데이트 API 및 실시간 비식별화 처리</div>
       <div class="tags">
         <span class="tag">Python</span>
         <span class="tag">Redis</span>
@@ -234,7 +246,7 @@
     </div>
     <div class="project-media">
       <div class="media-box">
-        <span class="media-placeholder">이미지 준비중</span>
+        <!-- <span class="media-placeholder">이미지 준비중</span> -->
       </div>
       <div class="image-dots"></div>
     </div>
@@ -244,11 +256,11 @@
   <div class="project-card">
     <div class="project-text">
       <div class="project-title">(인텔리콘) 계약서 분석기 개발</div>
-      <div class="project-period"></div>
-      <div class="project-desc">- 문서변환 API 개발: docx, hwp 등 문서에서 텍스트 추출
-- 문서 구조화 로직 개발: 추출된 텍스트를 조/항/호/목과 같은 단위로 구조화
-- 계약서 조항 분류 모델 개발: 구조화된 계약서 조항을 의미별로 분류하는 모델 개발 (BERT)
-- 계약서 비교분석 API 개발: 입력된 두개의 계약서(문서)를 비교하는 API 개발</div>
+      <div class="project-period">2020 | AI 기반 법률 문서 분석 솔루션</div>
+      <div class="project-desc">계약서 자동 분석 및 비교 시스템 구축
+- 법률 문서 구조화 파서 (조/항/호/목 단위 파싱 로직)
+- BERT 기반 계약서 조항 분류 모델 (조항 의미 분석)
+- 계약서 차이점 자동 검출 및 비교분석 API</div>
       <div class="tags">
         <span class="tag">Python</span>
         <span class="tag">PyTorch</span>
@@ -258,7 +270,7 @@
     </div>
     <div class="project-media">
       <div class="media-box">
-        <span class="media-placeholder">이미지 준비중</span>
+        <iframe src="https://www.youtube-nocookie.com/embed/Rfa2kkITlHM?rel=0&modestbranding=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
       </div>
       <div class="image-dots"></div>
     </div>
@@ -268,11 +280,11 @@
   <div class="project-card">
     <div class="project-text">
       <div class="project-title">(인텔리콘) 법률정보시스템 개발 (ULEX)</div>
-      <div class="project-period"></div>
-      <div class="project-desc">- 데이터 수집: 법/판례 데이터 수집 모듈 개발 (주기적인 업데이트)
-- 검색 알고리즘 개발: ES 기반 검색 알고리즘 개발
-- 추천 시스템 개발: BM25 score 및 word2vec semantic simailarity 기반 문서 추천 시스템 개발
-- 법/판례 링크 생성 로직 개발</div>
+      <div class="project-period">2019 | 법률 데이터 검색·추천 플랫폼</div>
+      <div class="project-desc">법률/판례 데이터베이스 구축 및 지능형 검색 시스템 개발
+- 법률 데이터 수집 자동화 파이프라인 구축 (크롤링, ETL)
+- Elasticsearch 기반 법률 검색 엔진 및 랭킹 알고리즘 최적화
+- BM25 + Word2Vec 하이브리드 문서 추천 시스템 설계</div>
       <div class="tags">
         <span class="tag">Python</span>
         <span class="tag">Elasticsearch</span>
@@ -285,7 +297,7 @@
     </div>
     <div class="project-media">
       <div class="media-box">
-        <span class="media-placeholder">이미지 준비중</span>
+        <iframe src="https://www.youtube-nocookie.com/embed/DM1eXC8dAjA?rel=0&modestbranding=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
       </div>
       <div class="image-dots"></div>
     </div>
@@ -302,24 +314,24 @@
 </div>
 
 <script>
-  // 이미지 갤러리 점(dot) 처리
+  // 이미지/영상 갤러리 점(dot) 처리
   document.querySelectorAll('.project-card').forEach(card => {
     const mediaBox = card.querySelector('.media-box');
     const dotsContainer = card.querySelector('.image-dots');
-    const images = mediaBox.querySelectorAll('img');
-    if(images.length <= 1) return;
+    const mediaItems = Array.from(mediaBox.querySelectorAll('img, iframe'));
+    if(mediaItems.length <= 1) return;
 
-    images.forEach((img, idx) => {
+    mediaItems.forEach((item, idx) => {
       const dot = document.createElement('span');
       if(idx===0) dot.classList.add('active');
       dot.addEventListener('click',()=>{
-        images.forEach(i=>i.style.display='none');
-        images[idx].style.display='block';
+        mediaItems.forEach(i=>i.style.display='none');
+        mediaItems[idx].style.display='block';
         dotsContainer.querySelectorAll('span').forEach(s=>s.classList.remove('active'));
         dot.classList.add('active');
       });
       dotsContainer.appendChild(dot);
-      if(idx!==0) img.style.display='none';
+      if(idx!==0) item.style.display='none';
     });
   });
 
