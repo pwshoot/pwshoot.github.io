@@ -57,7 +57,13 @@
     /* 모달 스타일 */
     .modal{display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); justify-content:center; align-items:center; z-index:1000; opacity:0; transition:opacity 0.3s ease;}
     .modal.show{display:flex; opacity:1;}
-    .modal img{max-width:90%; max-height:90%; border-radius:12px; box-shadow:0 0 30px rgba(0,0,0,0.5);}
+    .modal-content{position:relative; display:flex; align-items:center; justify-content:center; max-width:90%; max-height:90%;}
+    .modal img{max-width:90vw; max-height:90vh; border-radius:12px; box-shadow:0 0 30px rgba(0,0,0,0.5);}
+    .modal-arrow{position:absolute; top:50%; transform:translateY(-50%); background:rgba(255,255,255,0.9); border:none; width:50px; height:50px; border-radius:50%; cursor:pointer; font-size:24px; color:#333; display:flex; align-items:center; justify-content:center; transition:0.25s ease; z-index:1001;}
+    .modal-arrow:hover{background:#fff; transform:translateY(-50%) scale(1.1);}
+    .modal-arrow.prev{left:-70px;}
+    .modal-arrow.next{right:-70px;}
+    @media(max-width:768px){.modal-arrow{width:40px; height:40px; font-size:20px;}.modal-arrow.prev{left:-50px;}.modal-arrow.next{right:-50px;}}
 
     @media(max-width:960px){.project-card{flex-direction:column;padding:30px}.project-media{width:100%}.media-box{height:200px}}
   </style>
@@ -76,23 +82,210 @@
 <div class="container">
   <h2>포트폴리오</h2>
 
-  <!-- 프로젝트 카드 예시 -->
+  <!-- 프로젝트 1: 퀘스트보드 -->
   <div class="project-card">
     <div class="project-text">
       <div class="project-title">(코드넛) 퀘스트보드</div>
-      <div class="project-period">진행중</div>
-      <div class="project-desc">학습자료 생성 에이전트 개발\n- 에이전트를 통해 학습자료 생성\n- 자료를 올리거나, 만들고 싶은 주제를 입력해 자동생성</div>
+      <div class="project-period">학습자료 생성 에이전트</div>
+      <div class="project-desc">- 에이전트를 통해 학습자료 생성
+- 자료를 올리거나, 만들고 싶은 주제를 입력해 자동생성</div>
       <div class="tags">
         <span class="tag">Kubernetes</span>
         <span class="tag">FastAPI</span>
         <span class="tag">Elasticsearch</span>
       </div>
-      <a href="https://board.questbook.io/" class="btn">보기</a>
+      <a href="https://board.questbook.io/" class="btn" target="_blank">보기</a>
     </div>
     <div class="project-media">
       <div class="media-box">
-        <img src="assert/images/chrome-capture-2025-12-04.gif" alt="프로젝트 이미지">
-        <img src="assert/images/chrome-capture-2025-12-04.gif" alt="프로젝트 이미지">
+        <img src="assert/images/board-1.png" alt="프로젝트 이미지">
+        <img src="assert/images/board-0.png" alt="프로젝트 이미지">
+        <img src="assert/images/board-2.png" alt="프로젝트 이미지">
+        <img src="assert/images/board-3.png" alt="프로젝트 이미지">
+        <img src="assert/images/board-4.png" alt="프로젝트 이미지">
+        <img src="assert/images/board-5.png" alt="프로젝트 이미지">
+      </div>
+      <div class="image-dots"></div>
+    </div>
+  </div>
+
+  <!-- 프로젝트 2: 퀘스트북 -->
+  <div class="project-card">
+    <div class="project-text">
+      <div class="project-title">(코드넛) 퀘스트북</div>
+      <div class="project-period">클라우드 기반 온라인 문제집 제작·배포</div>
+      <div class="project-desc">- AI를 활용한 단어 암기장 생성
+- 과학/역사 챗봇
+- 문항생성 AI
+- 서술형 문제 평가 AI</div>
+      <div class="tags">
+        <span class="tag">FastAPI</span>
+        <span class="tag">Elasticsearch</span>
+      </div>
+      <a href="https://questbook.io/questHome" class="btn" target="_blank">보기</a>
+    </div>
+    <div class="project-media">
+      <div class="media-box">
+        <span class="media-placeholder">이미지 준비중</span>
+      </div>
+      <div class="image-dots"></div>
+    </div>
+  </div>
+
+  <!-- 프로젝트 3: Docubrain -->
+  <div class="project-card">
+    <div class="project-text">
+      <div class="project-title">(인텔리콘) Docubrain</div>
+      <div class="project-period">웹 기반 문서관리 시스템</div>
+      <div class="project-desc">- 문서 자동 변환 엔진 개발 (hwp, doc, pptx, .. -> PDF, HTML)
+- 개인정보 비식별화 기능 개발
+- 키워드 기반 + Semantic 기반 하이브리드 검색 엔진 개발
+- RAG 기반 QA 모델 설계 및 구축</div>
+      <div class="tags">
+        <span class="tag">Python</span>
+        <span class="tag">Elasticsearch</span>
+        <span class="tag">FastAPI</span>
+        <span class="tag">MySQL</span>
+      </div>
+      <a href="https://www.docubrain.ai/" class="btn" target="_blank">보기</a>
+    </div>
+    <div class="project-media">
+      <div class="media-box">
+        <span class="media-placeholder">이미지 준비중</span>
+      </div>
+      <div class="image-dots"></div>
+    </div>
+  </div>
+
+  <!-- 프로젝트 4: 판결문 요약 모델 -->
+  <div class="project-card">
+    <div class="project-text">
+      <div class="project-title">(인텔리콘) 판결문 요약 모델 개발</div>
+      <div class="project-period">판결문요약 과제 수행 (NIA 과제)</div>
+      <div class="project-desc">판결문 원문 및 요약문 데이터를 통해 BART fine tuning</div>
+      <div class="tags">
+        <span class="tag">Python</span>
+        <span class="tag">PyTorch</span>
+      </div>
+    </div>
+    <div class="project-media">
+      <div class="media-box">
+        <span class="media-placeholder">이미지 준비중</span>
+      </div>
+      <div class="image-dots"></div>
+    </div>
+  </div>
+
+  <!-- 프로젝트 5: 문서 변환 API -->
+  <div class="project-card">
+    <div class="project-text">
+      <div class="project-title">(인텔리콘) 문서 변환 API 개발</div>
+      <div class="project-period"></div>
+      <div class="project-desc">- MS 오피스 문서(.doc, .docx, .ppt, pptx, .xls, .xlsx)를 PDF 또는 HTML로 변환
+- 한컴 오피스 문서(.hwp, .hwpx)를 PDF 또는 HTML로 변환
+- PDF 문서를 HTML로 변환</div>
+      <div class="tags">
+        <span class="tag">Python</span>
+        <span class="tag">FastAPI</span>
+      </div>
+    </div>
+    <div class="project-media">
+      <div class="media-box">
+        <span class="media-placeholder">이미지 준비중</span>
+      </div>
+      <div class="image-dots"></div>
+    </div>
+  </div>
+
+  <!-- 프로젝트 6: OCR API -->
+  <div class="project-card">
+    <div class="project-text">
+      <div class="project-title">(인텔리콘) OCR API 개발</div>
+      <div class="project-period">CNN 기반 문자인식 모델 및 API 개발</div>
+      <div class="project-desc">PDF 또는 문서(.doc) 내에 저장된 이미지에서 텍스트 추출</div>
+      <div class="tags">
+        <span class="tag">Python</span>
+        <span class="tag">PyTorch</span>
+        <span class="tag">FastAPI</span>
+      </div>
+    </div>
+    <div class="project-media">
+      <div class="media-box">
+        <span class="media-placeholder">이미지 준비중</span>
+      </div>
+      <div class="image-dots"></div>
+    </div>
+  </div>
+
+  <!-- 프로젝트 7: 개인정보 비식별화 API -->
+  <div class="project-card">
+    <div class="project-text">
+      <div class="project-title">(인텔리콘) 개인정보 비식별화 API 개발</div>
+      <div class="project-period">텍스트 또는 HTML에서 개인정보를 비식별화</div>
+      <div class="project-desc">- 성명추출을 위한 NER 모델 개발: BERT 기반
+- API를 통한 개인정보추출 패턴 업데이트 기능: redis 활용 새로운 패턴 업데이트
+- 개인정보 유형: 성명, 주민번호, 주소, 전화번호, 자동차번호, 외국인등록번호, 계좌번호 등</div>
+      <div class="tags">
+        <span class="tag">Python</span>
+        <span class="tag">Redis</span>
+        <span class="tag">PyTorch</span>
+        <span class="tag">FastAPI</span>
+      </div>
+    </div>
+    <div class="project-media">
+      <div class="media-box">
+        <span class="media-placeholder">이미지 준비중</span>
+      </div>
+      <div class="image-dots"></div>
+    </div>
+  </div>
+
+  <!-- 프로젝트 8: 계약서 분석기 -->
+  <div class="project-card">
+    <div class="project-text">
+      <div class="project-title">(인텔리콘) 계약서 분석기 개발</div>
+      <div class="project-period"></div>
+      <div class="project-desc">- 문서변환 API 개발: docx, hwp 등 문서에서 텍스트 추출
+- 문서 구조화 로직 개발: 추출된 텍스트를 조/항/호/목과 같은 단위로 구조화
+- 계약서 조항 분류 모델 개발: 구조화된 계약서 조항을 의미별로 분류하는 모델 개발 (BERT)
+- 계약서 비교분석 API 개발: 입력된 두개의 계약서(문서)를 비교하는 API 개발</div>
+      <div class="tags">
+        <span class="tag">Python</span>
+        <span class="tag">PyTorch</span>
+        <span class="tag">FastAPI</span>
+      </div>
+      <a href="http://ailaw.co.kr/" class="btn" target="_blank">보기</a>
+    </div>
+    <div class="project-media">
+      <div class="media-box">
+        <span class="media-placeholder">이미지 준비중</span>
+      </div>
+      <div class="image-dots"></div>
+    </div>
+  </div>
+
+  <!-- 프로젝트 9: ULEX -->
+  <div class="project-card">
+    <div class="project-text">
+      <div class="project-title">(인텔리콘) 법률정보시스템 개발 (ULEX)</div>
+      <div class="project-period"></div>
+      <div class="project-desc">- 데이터 수집: 법/판례 데이터 수집 모듈 개발 (주기적인 업데이트)
+- 검색 알고리즘 개발: ES 기반 검색 알고리즘 개발
+- 추천 시스템 개발: BM25 score 및 word2vec semantic simailarity 기반 문서 추천 시스템 개발
+- 법/판례 링크 생성 로직 개발</div>
+      <div class="tags">
+        <span class="tag">Python</span>
+        <span class="tag">Elasticsearch</span>
+        <span class="tag">FastAPI</span>
+        <span class="tag">TensorFlow</span>
+        <span class="tag">PyTorch</span>
+        <span class="tag">MySQL</span>
+      </div>
+      <a href="https://www.ulex.co.kr/" class="btn" target="_blank">보기</a>
+    </div>
+    <div class="project-media">
+      <div class="media-box">
+        <span class="media-placeholder">이미지 준비중</span>
       </div>
       <div class="image-dots"></div>
     </div>
@@ -100,7 +293,13 @@
 </div>
 
 <!-- 이미지 모달 -->
-<div class="modal" id="imgModal"><img src="" alt="확대 이미지"></div>
+<div class="modal" id="imgModal">
+  <div class="modal-content">
+    <button class="modal-arrow prev">‹</button>
+    <img src="" alt="확대 이미지">
+    <button class="modal-arrow next">›</button>
+  </div>
+</div>
 
 <script>
   // 이미지 갤러리 점(dot) 처리
@@ -127,14 +326,53 @@
   // 이미지 클릭시 모달 열기
   const modal = document.getElementById('imgModal');
   const modalImg = modal.querySelector('img');
+  const prevBtn = modal.querySelector('.modal-arrow.prev');
+  const nextBtn = modal.querySelector('.modal-arrow.next');
+  let currentImages = [];
+  let currentIndex = 0;
+
   document.querySelectorAll('.media-box img').forEach(img => {
     img.addEventListener('click', ()=>{
+      const card = img.closest('.project-card');
+      currentImages = Array.from(card.querySelectorAll('.media-box img'));
+      currentIndex = currentImages.indexOf(img);
+
       modal.classList.add('show');
       modalImg.src = img.src;
+      updateArrows();
     });
   });
-  modal.addEventListener('click', ()=>{
-    modal.classList.remove('show');
+
+  // 화살표 버튼 클릭
+  prevBtn.addEventListener('click', (e)=>{
+    e.stopPropagation();
+    currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+    modalImg.src = currentImages[currentIndex].src;
+    updateArrows();
+  });
+
+  nextBtn.addEventListener('click', (e)=>{
+    e.stopPropagation();
+    currentIndex = (currentIndex + 1) % currentImages.length;
+    modalImg.src = currentImages[currentIndex].src;
+    updateArrows();
+  });
+
+  // 화살표 표시/숨김 (이미지 1개면 숨김)
+  function updateArrows() {
+    if(currentImages.length <= 1) {
+      prevBtn.style.display = 'none';
+      nextBtn.style.display = 'none';
+    } else {
+      prevBtn.style.display = 'flex';
+      nextBtn.style.display = 'flex';
+    }
+  }
+
+  modal.addEventListener('click', (e)=>{
+    if(e.target === modal) {
+      modal.classList.remove('show');
+    }
   });
 </script>
 
